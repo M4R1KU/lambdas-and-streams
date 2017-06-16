@@ -9,6 +9,7 @@ import static me.mkweb.techtalk.model.Mock.JOHN;
 /**
  * @author Mario Kunz
  */
+@SuppressWarnings("ALL")
 public class HigherOrderFunctions {
     public static void main(String[] args) {
         Function<Integer, Integer> fn = addTo(3);
