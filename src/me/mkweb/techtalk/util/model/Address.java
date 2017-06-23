@@ -1,4 +1,4 @@
-package me.mkweb.techtalk.model;
+package me.mkweb.techtalk.util.model;
 
 /**
  * @author Mario Kunz
@@ -8,25 +8,28 @@ public class Address {
     private int houseNumber;
     private String streetSupplement;
     private String city;
+    private String state;
     private int postalCode;
     private String country;
 
     public Address() {
     }
 
-    public Address(String street, int houseNumber, String city, int postalCode, String country) {
+    public Address(String street, int houseNumber, String city, String state, int postalCode, String country) {
         this.street = street;
         this.houseNumber = houseNumber;
         this.city = city;
+        this.state = state;
         this.postalCode = postalCode;
         this.country = country;
     }
 
-    public Address(String street, int houseNumber, String streetSupplement, String city, int postalCode, String country) {
+    public Address(String street, int houseNumber, String streetSupplement, String city, String state, int postalCode, String country) {
         this.street = street;
         this.houseNumber = houseNumber;
         this.streetSupplement = streetSupplement;
         this.city = city;
+        this.state = state;
         this.postalCode = postalCode;
         this.country = country;
     }
@@ -38,6 +41,7 @@ public class Address {
                 ", houseNumber=" + houseNumber +
                 ", streetSupplement='" + streetSupplement + '\'' +
                 ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
                 ", postalCode=" + postalCode +
                 ", country='" + country + '\'' +
                 '}';
@@ -89,5 +93,13 @@ public class Address {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 }

@@ -1,16 +1,17 @@
 package me.mkweb.techtalk.lambdas.a_problems;
 
-import me.mkweb.techtalk.model.Person;
+import me.mkweb.techtalk.util.internal.CustomerRepository;
+import me.mkweb.techtalk.util.model.Person;
 
 import java.util.function.Function;
-
-import static me.mkweb.techtalk.model.Mock.JOHN;
 
 /**
  * @author Mario Kunz
  */
 @SuppressWarnings("ALL")
 public class HigherOrderFunctions {
+    private static CustomerRepository customerRepository = CustomerRepository.INSTANCE;
+
     public static void main(String[] args) {
         Function<Integer, Integer> fn = addTo(3);
 
@@ -23,8 +24,9 @@ public class HigherOrderFunctions {
         // etc.
 
         //-------
-        String countryName = extract(person -> person.getAddress().getCountry(), JOHN);
-        String firstName = extract(Person::getFirstName, JOHN); // With Method Reference
+        Person p = customerRepository.findOne(1).orElseThrow(IllegalStateException::new);
+        String countryName = extract(person -> person.getAddress().getCountry(), p);
+        String firstName = extract(Person::getFirstName, p); // With Method Reference
         System.out.printf("The country of %s is %s", firstName, countryName);
     }
 
