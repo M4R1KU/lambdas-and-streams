@@ -12,4 +12,5 @@ public interface Repository<T> {
     Optional<T> findOne(int id);
     Optional<T> findOne(Predicate<T> predicate);
     T save(T toSave);
+    List<T> save(List<T> toSave);
 }

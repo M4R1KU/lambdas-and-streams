@@ -21,6 +21,7 @@ public abstract class AbstractRepository<T> implements Repository<T> {
      *
      * @return List<T>
      */
+    @Override
     public List<T> findAll() {
         return entities.entrySet().stream()
                 .map(Map.Entry::getValue)
@@ -34,6 +35,7 @@ public abstract class AbstractRepository<T> implements Repository<T> {
      * @param id to search
      * @return either the optional with the person or an empty one
      */
+    @Override
     public Optional<T> findOne(int id) {
         return Optional.ofNullable(entities.get(id));
     }
@@ -44,6 +46,7 @@ public abstract class AbstractRepository<T> implements Repository<T> {
      * @param predicate to match
      * @return either the optional with the person or an empty one
      */
+    @Override
     public Optional<T> findOne(Predicate<T> predicate) {
         return findAll().stream()
                 .filter(predicate)
@@ -56,6 +59,7 @@ public abstract class AbstractRepository<T> implements Repository<T> {
      * @param entity to save
      * @return the saved person e.g. the given one
      */
+    @Override
     public T save(T entity) {
         int nextId = entities.entrySet().stream()
                 .filter(entry -> entry.getValue().equals(entity))
@@ -71,6 +75,7 @@ public abstract class AbstractRepository<T> implements Repository<T> {
      * @param entities to save
      * @return the saved person e.g. the given one
      */
+    @Override
     public List<T> save(List<T> entities) {
         return entities.stream()
                 .map(this::save)

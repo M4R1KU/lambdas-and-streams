@@ -1,5 +1,6 @@
 package me.mkweb.techtalk.util;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import me.mkweb.techtalk.util.internal.*;
 import me.mkweb.techtalk.util.model.*;
 
@@ -15,11 +16,11 @@ import static java.util.Arrays.asList;
  * @author Mario Kunz
  */
 public final class Mock {
-    private static final CompanyRepository COMPANY_REPOSITORY = CompanyRepository.INSTANCE;
-    private static final CustomerRepository CUSTOMER_REPOSITORY = CustomerRepository.INSTANCE;
-    private static final EmployeeRepository EMPLOYEE_REPOSITORY = EmployeeRepository.INSTANCE;
-    private static final OrderRepository ORDER_REPOSITORY = OrderRepository.INSTANCE;
-    public static final AddressRepository ADDRESS_REPOSITORY = AddressRepository.INSTANCE;
+    private static final Repository<Company> COMPANY_REPOSITORY = CompanyRepository.INSTANCE;
+    private static final Repository<Customer> CUSTOMER_REPOSITORY = CustomerRepository.INSTANCE;
+    private static final Repository<Employee> EMPLOYEE_REPOSITORY = EmployeeRepository.INSTANCE;
+    private static final Repository<Order> ORDER_REPOSITORY = OrderRepository.INSTANCE;
+    public static final Repository<Address> ADDRESS_REPOSITORY = AddressRepository.INSTANCE;
 
     // region Addresses
     public static final Address LAKE_ZURICH = new Address("Cherry Road", 19, "Lake Zurich", "Illinois", 60047, "USA");
