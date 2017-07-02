@@ -5,6 +5,7 @@ import static java.lang.Thread.currentThread;
 /**
  * @author Mario Kunz
  */
+@SuppressWarnings("ALL")
 public class AnonymousClasses {
     public static void main(String[] args) {
         new Thread(new Runnable() {

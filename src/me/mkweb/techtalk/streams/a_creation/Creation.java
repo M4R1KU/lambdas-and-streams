@@ -1,6 +1,7 @@
 package me.mkweb.techtalk.streams.a_creation;
 
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -14,7 +15,7 @@ import static java.util.Arrays.asList;
 @SuppressWarnings("ALL")
 public class Creation {
     private static final List<String> list = asList("a", "b", "c", "d", "e");
-    private static final LinkedList<String> linkedList = new LinkedList<>(asList("f", "g", "h", "i", "j"));
+    private static final Deque<String> linkedList = new LinkedList<>(asList("f", "g", "h", "i", "j"));
     private static final String[] array = new String[]{"a", "b", "c"};
 
     public static void main(String[] args) {
@@ -22,6 +23,7 @@ public class Creation {
         Stream<String> arrayStream = Arrays.stream(array);
         print(arrayStream);
         // endregion
+
         // region Collection
         // stream is defined in the Collection interface and every subclass implements it
         Stream<String> streamFromCollection = list.stream();
@@ -33,8 +35,8 @@ public class Creation {
         // region Stream interface
         Stream<String> singleValueStream = Stream.of("a");
         Stream<String> multiValueStream = Stream.of("a", "b", "c");
-        Stream<String> concatetStream = Stream.concat(singleValueStream, multiValueStream);
-        print(concatetStream);
+        Stream<String> concatenatedStream = Stream.concat(singleValueStream, multiValueStream);
+        print(concatenatedStream);
 
         Stream<Object> emptyStream = Stream.empty();
         print(emptyStream);
@@ -60,10 +62,13 @@ public class Creation {
         // endregion
 
         // region Parallel Stream
-        Stream<String> parallelStreamOfList = list.parallelStream();
+        Stream<String> parallelStreamOfList = list.parallelStream()
+                .map(s -> String.format("%s: %s", Thread.currentThread().getName(), s));
         print(parallelStreamOfList);
 
-        Stream<String> parallelMultiValueStream = Stream.of("p", "a", "r", "a", "l", "l", "e", "l").parallel();
+        Stream<String> parallelMultiValueStream = Stream.of("p", "a", "r", "a", "l", "l", "e", "l")
+                .parallel()
+                .map(s -> String.format("%s: %s", Thread.currentThread().getName(), s));
         print(parallelMultiValueStream);
         // endregion
     }
