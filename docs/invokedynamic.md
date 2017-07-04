@@ -1,0 +1,4 @@
+---
+permalink: /dynamic
+---
+# Invokedynamic
