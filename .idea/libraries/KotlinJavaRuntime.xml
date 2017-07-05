@@ -12,6 +12,7 @@
       <root url="jar://$PROJECT_DIR$/lib/kotlin-stdlib-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/kotlin-stdlib-jre7-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/kotlin-stdlib-jre8-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/kotlin-runtime-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
