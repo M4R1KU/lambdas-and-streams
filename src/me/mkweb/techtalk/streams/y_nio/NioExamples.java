@@ -1,5 +1,6 @@
 package me.mkweb.techtalk.streams.y_nio;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,8 +19,13 @@ public class NioExamples {
         System.out.println(joined);
 
         Path pwd = Paths.get("src/");
-        Files.walk(pwd)
+        long sum = Files.walk(pwd)
                 .filter(path -> path.toString().matches(".*/.*/.*/.*/.*/.*/.*"))
-                .forEach(System.out::println);
+                .filter(path -> !Files.isDirectory(path))
+                .map(Path::toFile)
+                .mapToLong(File::length)
+                .sum();
+
+        System.out.println(sum);
     }
 }
