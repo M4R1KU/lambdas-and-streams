@@ -2,8 +2,8 @@
 
 ## TechTalk
 - [Presentation](https://docs.google.com/presentation/d/1G_WaxsiqJjdM1esZRwuT9djCyqToq8VVObUPpGQjgFw/edit?usp=sharing)
-- [Lambda Presentation as Text](/lambdas)
-- [Invoke Dynamic](/dynamic)
+- [Lambda Presentation as Text](lambdas)
+- [Invoke Dynamic](dynamic)
 
 ## Link
 Here you can find some handy links.

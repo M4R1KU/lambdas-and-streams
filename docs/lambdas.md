@@ -70,14 +70,14 @@ Von Lambdas aus können alle Variablen im umgebenden Kontext angesprochen werden
 ```java
 int x = 100;
 IntUnaryOperator op = y -> y * x;
-int result = op.apply(10); // 1000
+int result = op.applyAsInt(10); // 1000
 ```
 
 ```java
 int x = 100;
 IntUnaryOperator op = y -> y * x;
 x = 10;
-int result = op.apply(10); // Error: local variable used in lambda must be final or effectively final
+int result = op.applyAsInt(10); // Error: local variable used in lambda must be final or effectively final
 ```
 
 Dies hat der Grund, dass so komische Sideeffects durch wechselnden Kontext verhindert werden sollen.

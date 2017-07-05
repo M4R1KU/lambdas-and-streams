@@ -1,4 +1,4 @@
 ---
 permalink: /dynamic
 ---
-# Invokedynamic
+# Invoke Dynamic
