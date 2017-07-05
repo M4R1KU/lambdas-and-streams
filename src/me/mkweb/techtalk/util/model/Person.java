@@ -1,5 +1,8 @@
 package me.mkweb.techtalk.util.model;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 /**
  * @author Mario Kunz
  */
@@ -12,11 +15,21 @@ public class Person {
     public Person() {
     }
 
+    public Person(String firstName, String secondName, int age) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.age = age;
+    }
+
     public Person(String firstName, String secondName, Address address, int age) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.address = address;
         this.age = age;
+    }
+
+    public String getFullName() {
+        return firstName + " " + secondName;
     }
 
     @Override
